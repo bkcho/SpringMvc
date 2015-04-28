@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.spring.basic.member.Member;
+
 @Controller // 이 자바 파일은 컨트롤러가된다.
 public class HomeController {
 	
@@ -71,6 +73,29 @@ public class HomeController {
 		model.addAttribute("password", pw);
 		return "board/checkid";
 	}
-	
+
+/*	@RequestMapping("/member/join") // http://localhost:8888/basic/member/join?name=1&id=test&pw=2&email=3
+	public String joinData(@RequestParam("name") String name, 
+							@RequestParam("id") String id,
+							@RequestParam("pw") String pw,
+							@RequestParam("email") String email,
+							Model model){
+		
+		Member member = new Member();
+		member.setName(name);
+		member.setId(id);
+		member.setPw(pw);
+		member.setEmail(email);
+		
+		model.addAttribute("member", member);
+				
+		return "member/join";
+	}
+*/	
+	// 위처럼 해야할 것을 아래처럼 간단하게 할 수 있다.
+	@RequestMapping("/member/join") // http://localhost:8888/basic/member/join?name=조병국&id=ppusari&pw=1234&email=ppusari@gmail.com
+	public String joinData(Member member){
+		return "member/join";
+	}
 	
 }
