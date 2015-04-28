@@ -21,5 +21,7 @@ HomeController.java( @RequestMapping 에노테이션을 보면 "/" 로 들어오
 <!-- 이미지 경로는 아래와 같이 패키지명 부터 시작한다. -->
 <p> <img src="/basic/resources/cat.jpg">
 
+<p> <img src="/basic/myResources/cat.jpg">
+
 </body>
 </html>
