@@ -4,6 +4,9 @@ import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+import javax.servlet.ServletRequest;
+import javax.servlet.http.HttpServletRequest;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -48,6 +51,15 @@ public class HomeController {
 		mv.addObject("id",30);
 		mv.setViewName("board/reply");
 		return mv;
+	}
+	
+	@RequestMapping("board/confirmid") // http://localhost:8888/basic/board/confirmid?id=ppusari&pw=1234
+	public String confirmid(HttpServletRequest httpServletRequest, Model model){
+		String id = httpServletRequest.getParameter("id");
+		String pw = httpServletRequest.getParameter("pw");
+		model.addAttribute("id", id);
+		model.addAttribute("pw", pw);
+		return "board/confirmid";
 	}
 	
 	
