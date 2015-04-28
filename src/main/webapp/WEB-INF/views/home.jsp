@@ -18,6 +18,8 @@ DispatcherServlet -> servlet-context.xml( <context:component-scan> 에 있는 �
 HomeController.java( @RequestMapping 에노테이션을 보면 "/" 로 들어오는  value값은 모두 아래함수가 처리한다.
 아래함수를 모두 처리한 후   리턴값으로 view에 보내질 파일명을 입력  --%>
 
+<!-- 이미지 경로는 아래와 같이 패키지명 부터 시작한다. -->
+<p> <img src="/basic/resources/cat.jpg">
 
 </body>
 </html>
