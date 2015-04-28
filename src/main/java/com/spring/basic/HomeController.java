@@ -13,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller // 이 자바 파일은 컨트롤러가된다.
@@ -60,6 +61,15 @@ public class HomeController {
 		model.addAttribute("id", id);
 		model.addAttribute("pw", pw);
 		return "board/confirmid";
+	}
+	
+	// 주소 파라미터값이 없으면 400 에러가 난다.
+	@RequestMapping("board/checkid") // http://localhost:8888/basic/board/checkid?id=test&pw=12345
+	public String checkId(@RequestParam("id") String id, @RequestParam("pw") int pw, Model model){
+
+		model.addAttribute("identify", id);
+		model.addAttribute("password", pw);
+		return "board/checkid";
 	}
 	
 	
