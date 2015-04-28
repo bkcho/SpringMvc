@@ -42,9 +42,9 @@ public class HomeController {
 		return "board/content";
 	}
 	
-	@RequestMapping("/board/reply")
+	@RequestMapping("/board/reply")	// http://localhost:8888/basic/board/reply
 	public ModelAndView reply() {
-		ModelAndView mv = new ModelAndView();
+		ModelAndView mv = new ModelAndView(); // Model 인자를 받지 않고 사용하는 방법
 		mv.addObject("id",30);
 		mv.setViewName("board/reply");
 		return mv;
