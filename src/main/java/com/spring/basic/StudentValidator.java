@@ -1,6 +1,7 @@
 package com.spring.basic;
 
 import org.springframework.validation.Errors;
+import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
 public class StudentValidator implements Validator {
@@ -15,11 +16,13 @@ public class StudentValidator implements Validator {
 		System.out.println("validate()");
 		Student student = (Student)obj;
 		
-		String studentName =  student.getName();
+/*		String studentName =  student.getName();
 		if (studentName == null || studentName.trim().isEmpty()){
 			System.out.println("studentName is null or empty");
 			errors.rejectValue("name", "troble");			
 		}
+*/
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "name", "troble");
 		
 		int studentId = student.getId();
 		if (studentId == 0){
